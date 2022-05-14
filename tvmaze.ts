@@ -27,8 +27,8 @@ async function getShowsByTerm(term: string): Promise<Show[]> {
   console.log(response.data)
   let shows: Record<string,any>[] = response.data;
   return shows.map(show => {
-    let image = show.show.image 
-                ? show.show.image.medium 
+    let image = show.show.image
+                ? show.show.image.medium
                 : "https://duetaz.org/wp-content/uploads/2018/07/Movie-Night.jpg";
           return {
           id: show.show.id,
@@ -95,7 +95,7 @@ type Episode = {
  *      { id, name, season, number }
  */
 
-async function getEpisodesOfShow(id: number): Promise<Episode[]> { 
+async function getEpisodesOfShow(id: number): Promise<Episode[]> {
 
   let response = await axios.get(`${BASE_URL}/shows/${id}/episodes`);
   let episodes: Record<string,any>[] = response.data;
@@ -111,7 +111,7 @@ async function getEpisodesOfShow(id: number): Promise<Episode[]> {
 
 }
 
-/** Given an array of episodes, 
+/** Given an array of episodes,
  * generate markup for each episode
  * and attach to #episodeList in DOM */
 
@@ -145,8 +145,6 @@ async function generateEpisodeListAndDisplay(id: string) {
   //if condition
   let id = $(evt.target).closest(".Show").attr("data-show-id");
   console.log(id);
-  let showId = id as string; //tells complier to trust 
+  let showId = id as string; //tells complier to trust
   await generateEpisodeListAndDisplay(showId);
 });
-
-
