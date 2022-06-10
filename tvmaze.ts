@@ -42,6 +42,7 @@ async function getShowsByTerm(term: string): Promise<Show[]> {
 /** Given list of shows, create markup for each and to DOM
  *
  * Testing
+ * t
 */
 
 function populateShows(shows: Show[]) {
